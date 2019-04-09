@@ -5,7 +5,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.0.5
-Release:        2
+Release:        3
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
@@ -86,7 +86,7 @@ The Linux kernel.
 License:        GPL-2.0
 Summary:        The Linux kernel extra files
 Group:          kernel
-Requires:       linux-license = %{version}-%{release}
+Requires:       linux-preempt-rt-license = %{version}-%{release}
 
 %description extra
 Linux kernel extra files
@@ -110,9 +110,9 @@ Creates a cpio file with i8042 module
 License:        GPL-2.0
 Summary:        The Linux kernel
 Group:          kernel
-Requires:       linux = %{version}-%{release}
-Requires:       linux-extra = %{version}-%{release}
-Requires:       linux-license = %{version}-%{release}
+Requires:       linux-preempt-rt = %{version}-%{release}
+Requires:       linux-preempt-rt-extra = %{version}-%{release}
+Requires:       linux-preempt-rt-license = %{version}-%{release}
 
 %description dev
 Linux kernel build files and install script
@@ -252,9 +252,9 @@ createCPIO %{ktarget} %{kversion}
 
 rm -rf %{buildroot}/usr/lib/firmware
 
-mkdir -p %{buildroot}/usr/share/package-licenses/linux
-cp COPYING %{buildroot}/usr/share/package-licenses/linux/COPYING
-cp -a LICENSES/* %{buildroot}/usr/share/package-licenses/linux
+mkdir -p %{buildroot}/usr/share/package-licenses/linux-preempt-rt
+cp COPYING %{buildroot}/usr/share/package-licenses/linux-preempt-rt/COPYING
+cp -a LICENSES/* %{buildroot}/usr/share/package-licenses/linux-preempt-rt
 
 %files
 %dir /usr/lib/kernel
@@ -273,7 +273,7 @@ cp -a LICENSES/* %{buildroot}/usr/share/package-licenses/linux
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/linux
+/usr/share/package-licenses/linux-preempt-rt
 
 %files cpio
 /usr/lib/kernel/initrd-org.clearlinux.%{ktarget}.%{version}-%{release}
