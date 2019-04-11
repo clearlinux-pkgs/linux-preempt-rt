@@ -11,7 +11,7 @@ Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
 Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.5.tar.xz
-Source1:        https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.5-rt3.patch.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.5-rt3.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -28,8 +28,12 @@ Requires: init-rdahead-extras
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# preempt_rt patch
+#Serie0.name Upstream_Preemt-RT
+#Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
+#Serie0.tag  v5.0.5-rt3-patches
+#Serie0.start
 Patch0000: patch-5.0.5-rt3.patch.xz
+#Serie0.end
 
 #    000X: cve, bugfixes patches
 Patch0001: 0001-i40iw-Avoid-panic-when-handling-the-inetdev-event.patch
