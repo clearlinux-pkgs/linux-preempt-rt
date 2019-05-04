@@ -36,8 +36,7 @@ Patch0000: patch-5.0.10-rt7.patch.xz
 #Serie0.end
 
 #    000X: cve, bugfixes patches
-Patch0001: 0001-i40iw-Avoid-panic-when-handling-the-inetdev-event.patch
-Patch0002: CVE-2019-9500.patch
+Patch0001: CVE-2019-9500.patch
 
 #    00XY: Mainline patches, upstream backports
 
@@ -130,7 +129,6 @@ Linux kernel build files and install script
 
 #     000X  cve, bugfixes patches
 %patch0001 -p1
-%patch0002 -p1
 
 #     00XY  Mainline patches, upstream backports
 
