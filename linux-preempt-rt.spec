@@ -4,14 +4,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.0.7
-Release:        5
+Version:        5.0.10
+Release:        6
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.7.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.7-rt5.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.10.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.10-rt7.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -30,9 +30,9 @@ Requires: init-rdahead-extras
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.0.7-rt5-patches
+#Serie0.tag  v5.0.10-rt7-patches
 #Serie0.start
-Patch0000: patch-5.0.7-rt5.patch.xz
+Patch0000: patch-5.0.10-rt7.patch.xz
 #Serie0.end
 
 #    000X: cve, bugfixes patches
@@ -126,7 +126,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files and install script
 
 %prep
-%setup -q -n linux-5.0.7
+%setup -q -n linux-5.0.10
 
 #     0000  preempt_rt
 %patch0000 -p1
