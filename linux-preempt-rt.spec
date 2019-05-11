@@ -5,7 +5,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.0.14
-Release:        9
+Release:        10
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
@@ -70,7 +70,6 @@ Patch0122: 0122-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
 Patch0123: 0123-add-scheduler-turbo3-patch.patch
 Patch0124: 0124-use-lfence-instead-of-rep-and-nop.patch
 Patch0125: 0125-do-accept-in-LIFO-order-for-cache-efficiency.patch
-Patch0126: 0126-zero-extra-registers.patch
 Patch0127: 0127-locking-rwsem-spin-faster.patch
 #Serie.clr.end
 
@@ -160,7 +159,6 @@ Linux kernel build files and install script
 %patch0123 -p1
 %patch0124 -p1
 %patch0125 -p1
-%patch0126 -p1
 %patch0127 -p1
 
 #Serie1.patch.start
