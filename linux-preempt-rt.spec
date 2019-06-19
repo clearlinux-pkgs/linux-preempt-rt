@@ -35,10 +35,18 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 Patch0000: patch-5.0.21-rt12.patch.xz
 #Serie0.end
 
-#cve.start cve patches from 0001 to 009
+#cve.start cve patches from 0001 to 050
+Patch0001: CVE-2019-10126.patch
+Patch0002: CVE-2019-12378.patch
+Patch0003: CVE-2019-12379.patch
+Patch0004: CVE-2019-12380.patch
+Patch0005: CVE-2019-12381.patch
+Patch0006: CVE-2019-12382.patch
+Patch0007: CVE-2019-12455.patch
+Patch0008: CVE-2019-12456.patch
 #cve.end
 
-#mainline: Mainline patches, upstream backport and fixes from 0010 to 0099
+#mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
 Patch0050: 0050-tcp_bbr-refactor-bbr_target_cwnd-for-general-infligh.patch
 Patch0051: 0051-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimati.patch
 #mainline.end
@@ -126,6 +134,14 @@ Linux kernel build files
 #Serie0.patch.end
 
 #cve.patch.start cve patches
+%patch0001 -p1
+%patch0002 -p1
+%patch0003 -p1
+%patch0004 -p1
+%patch0005 -p1
+%patch0006 -p1
+%patch0007 -p1
+%patch0008 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
