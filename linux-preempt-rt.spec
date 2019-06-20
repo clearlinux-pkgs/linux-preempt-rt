@@ -44,6 +44,9 @@ Patch0005: CVE-2019-12381.patch
 Patch0006: CVE-2019-12382.patch
 Patch0007: CVE-2019-12455.patch
 Patch0008: CVE-2019-12456.patch
+Patch0009: CVE-2019-11477.patch
+Patch0010: CVE-2019-11478.patch
+Patch0011: CVE-2019-11479.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
@@ -142,6 +145,9 @@ Linux kernel build files
 %patch0006 -p1
 %patch0007 -p1
 %patch0008 -p1
+%patch0009 -p1
+%patch0010 -p1
+%patch0011 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
