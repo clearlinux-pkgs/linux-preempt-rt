@@ -4,13 +4,13 @@
 
 Name:           linux-preempt-rt
 Version:        5.0.21
-Release:        14
+Release:        15
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
 Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.21.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.21-rt13.patch.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.21-rt14.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -30,9 +30,9 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.0.21-rt13-patches
+#Serie0.tag  v5.0.21-rt14-patches
 #Serie0.start
-Patch0000: patch-5.0.21-rt13.patch.xz
+Patch0000: patch-5.0.21-rt14.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
