@@ -6,8 +6,8 @@ Subject: [PATCH] add scheduler turbo3 patch
 Small scheduler tweak to make the scheduler more turbo3 aware
 ---
  arch/x86/kernel/itmt.c | 14 ++++++++++++++
- kernel/sched/fair.c    | 19 +++++++++++++++++++
- 2 files changed, 33 insertions(+)
+ kernel/sched/fair.c    | 18 ++++++++++++++++++
+ 2 files changed, 32 insertions(+)
 
 diff --git a/arch/x86/kernel/itmt.c b/arch/x86/kernel/itmt.c
 index 838cf8a32c49..8afce9f29f76 100644
@@ -41,7 +41,7 @@ index 838cf8a32c49..8afce9f29f76 100644
  	}
  }
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index f35930f5e528..64033a47a3fd 100644
+index 1755cf6e6f1e..4a72c80b3db8 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
 @@ -6669,6 +6669,10 @@ static int find_energy_efficient_cpu(struct task_struct *p, int prev_cpu)
@@ -55,8 +55,8 @@ index f35930f5e528..64033a47a3fd 100644
  static int
  select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_flags)
  {
-@@ -6692,6 +6696,21 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
- 			      cpumask_test_cpu(cpu, &p->cpus_allowed);
+@@ -6692,6 +6696,20 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
+ 			      cpumask_test_cpu(cpu, p->cpus_ptr);
  	}
  
 +	if (prev_cpu != best_core && prev_cpu != second_best_core &&
@@ -72,7 +72,6 @@ index f35930f5e528..64033a47a3fd 100644
 +	if (prev_cpu > 0 && cpu_rq(prev_cpu)->nr_running != 0 && cpu_rq(prev_cpu - 1)->nr_running == 0)
 +		prev_cpu = prev_cpu - 1;
 +*/
-+
 +
  	rcu_read_lock();
  	for_each_domain(cpu, tmp) {
