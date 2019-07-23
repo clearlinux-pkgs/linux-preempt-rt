@@ -10,10 +10,10 @@ Subject: [PATCH] do accept() in LIFO order for cache efficiency
  3 files changed, 27 insertions(+), 1 deletion(-)
 
 diff --git a/include/linux/wait.h b/include/linux/wait.h
-index b6f77cf60dd7..f8529dc955a9 100644
+index 565651f2451c..09658ea6092b 100644
 --- a/include/linux/wait.h
 +++ b/include/linux/wait.h
-@@ -149,6 +149,7 @@ static inline bool wq_has_sleeper(struct wait_queue_head *wq_head)
+@@ -150,6 +150,7 @@ static inline bool wq_has_sleeper(struct wait_queue_head *wq_head)
  
  extern void add_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
  extern void add_wait_queue_exclusive(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
@@ -21,7 +21,7 @@ index b6f77cf60dd7..f8529dc955a9 100644
  extern void remove_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
  
  static inline void __add_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry)
-@@ -1109,6 +1110,7 @@ do {										\
+@@ -1110,6 +1111,7 @@ do {										\
   */
  void prepare_to_wait(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry, int state);
  void prepare_to_wait_exclusive(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry, int state);
