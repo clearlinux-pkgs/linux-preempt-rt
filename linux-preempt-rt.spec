@@ -3,14 +3,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.0.21
-Release:        18
+Version:        5.2.0
+Release:        19
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.21.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.0/patch-5.0.21-rt16.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.2/patch-5.2-rt1.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -30,28 +30,37 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.0.21-rt16-patches
+#Serie0.tag  v5.2-rt1-patches
 #Serie0.start
-Patch0000: patch-5.0.21-rt16.patch.xz
+Patch0000: patch-5.2-rt1.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
-Patch0001: CVE-2019-10126.patch
-Patch0002: CVE-2019-12378.patch
-Patch0003: CVE-2019-12379.patch
-Patch0004: CVE-2019-12380.patch
-Patch0005: CVE-2019-12381.patch
-Patch0006: CVE-2019-12382.patch
-Patch0007: CVE-2019-12455.patch
-Patch0008: CVE-2019-12456.patch
-Patch0009: CVE-2019-11477.patch
-Patch0010: CVE-2019-11478.patch
-Patch0011: CVE-2019-11479.patch
+Patch0001: CVE-2019-12379.patch
+Patch0002: CVE-2019-12382.patch
+Patch0003: CVE-2019-12454.patch
+Patch0004: CVE-2019-12455.patch
+Patch0005: CVE-2019-12456.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
-Patch0050: 0050-tcp_bbr-refactor-bbr_target_cwnd-for-general-infligh.patch
-Patch0051: 0051-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimati.patch
+Patch0051: 0051-fpga-dfl-fme-mgr-fix-FME_PR_INTFC_ID-register-addres.patch
+Patch0052: 0052-fpga-dfl-fme-remove-copy_to_user-in-ioctl-for-PR.patch
+Patch0053: 0053-fpga-dfl-fme-align-PR-buffer-size-per-PR-datawidth.patch
+Patch0054: 0054-fpga-dfl-fme-support-512bit-data-width-PR.patch
+Patch0055: 0055-fpga-dfl-fme-add-DFL_FPGA_FME_PORT_RELEASE-ASSIGN-io.patch
+Patch0056: 0056-fpga-dfl-pci-enable-SRIOV-support.patch
+Patch0057: 0057-fpga-dfl-afu-add-AFU-state-related-sysfs-interfaces.patch
+Patch0058: 0058-fpga-dfl-afu-add-userclock-sysfs-interfaces.patch
+Patch0059: 0059-fpga-dfl-add-id_table-for-dfl-private-feature-driver.patch
+Patch0060: 0060-fpga-dfl-afu-export-__port_enable-disable-function.patch
+Patch0061: 0061-fpga-dfl-afu-add-error-reporting-support.patch
+Patch0062: 0062-fpga-dfl-afu-add-STP-SignalTap-support.patch
+Patch0063: 0063-fpga-dfl-fme-add-capability-sysfs-interfaces.patch
+Patch0064: 0064-fpga-dfl-fme-add-global-error-reporting-support.patch
+Patch0065: 0065-fpga-dfl-fme-add-thermal-management-support.patch
+Patch0066: 0066-fpga-dfl-fme-add-power-management-support.patch
+Patch0067: 0067-fpga-dfl-fme-add-performance-reporting-support.patch
 #mainline.end
 
 #Serie.clr 01XX: Clear Linux patches
@@ -68,20 +77,24 @@ Patch0110: 0110-Initialize-ata-before-graphics.patch
 Patch0111: 0111-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
 Patch0112: 0112-give-rdrand-some-credit.patch
 Patch0113: 0113-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
-Patch0114: 0114-tweak-perfbias.patch
-Patch0115: 0115-e1000e-increase-pause-and-refresh-time.patch
-Patch0116: 0116-kernel-time-reduce-ntp-wakeups.patch
-Patch0117: 0117-init-wait-for-partition-and-retry-scan.patch
-Patch0118: 0118-print-fsync-count-for-bootchart.patch
-Patch0119: 0119-Add-boot-option-to-allow-unsigned-modules.patch
-Patch0120: 0120-Enable-stateless-firmware-loading.patch
-Patch0121: 0121-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
-Patch0122: 0122-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0123: 0123-add-scheduler-turbo3-patch.patch
-Patch0124: 0124-use-lfence-instead-of-rep-and-nop.patch
-Patch0125: 0125-do-accept-in-LIFO-order-for-cache-efficiency.patch
-Patch0126: 0126-zero-extra-registers.patch
-Patch0127: 0127-locking-rwsem-spin-faster.patch
+Patch0114: 0114-e1000e-increase-pause-and-refresh-time.patch
+Patch0115: 0115-kernel-time-reduce-ntp-wakeups.patch
+Patch0116: 0116-init-wait-for-partition-and-retry-scan.patch
+Patch0117: 0117-print-fsync-count-for-bootchart.patch
+Patch0118: 0118-Add-boot-option-to-allow-unsigned-modules.patch
+Patch0119: 0119-Enable-stateless-firmware-loading.patch
+Patch0120: 0120-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
+Patch0121: 0121-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
+Patch0122: 0122-add-scheduler-turbo3-patch.patch
+Patch0123: 0123-use-lfence-instead-of-rep-and-nop.patch
+Patch0124: 0124-do-accept-in-LIFO-order-for-cache-efficiency.patch
+Patch0125: 0125-zero-extra-registers.patch
+Patch0126: 0126-locking-rwsem-spin-faster.patch
+Patch0127: 0127-thp-fix.patch
+Patch0128: 0128-ata-libahci-ignore-staggered-spin-up.patch
+
+Patch0130: force-load-ucode.patch
+Patch0131: force-with-reload2.patch
 #Serie.end
 
 #Serie1.name WireGuard
@@ -142,17 +155,26 @@ Linux kernel build files
 %patch0003 -p1
 %patch0004 -p1
 %patch0005 -p1
-%patch0006 -p1
-%patch0007 -p1
-%patch0008 -p1
-%patch0009 -p1
-%patch0010 -p1
-%patch0011 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
-%patch0050 -p1
 %patch0051 -p1
+%patch0052 -p1
+%patch0053 -p1
+%patch0054 -p1
+%patch0055 -p1
+%patch0056 -p1
+%patch0057 -p1
+%patch0058 -p1
+%patch0059 -p1
+%patch0060 -p1
+%patch0061 -p1
+%patch0062 -p1
+%patch0063 -p1
+%patch0064 -p1
+%patch0065 -p1
+%patch0066 -p1
+%patch0067 -p1
 #mainline.patch.end
 
 #Serie.patch.start Clear Linux patches
@@ -183,6 +205,10 @@ Linux kernel build files
 %patch0125 -p1
 %patch0126 -p1
 %patch0127 -p1
+%patch0128 -p1
+
+%patch0130 -p1
+%patch0131 -p1
 #Serie.patch.end
 
 #Serie1.patch.start
