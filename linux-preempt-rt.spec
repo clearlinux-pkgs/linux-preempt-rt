@@ -4,7 +4,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.2.0
-Release:        19
+Release:        20
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
@@ -143,7 +143,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.0.21
+%setup -q -n linux-5.2
 
 #Serie0.patch.start
 %patch0000 -p1
