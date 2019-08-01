@@ -4,7 +4,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.2.0
-Release:        20
+Release:        21
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
@@ -41,6 +41,8 @@ Patch0002: CVE-2019-12382.patch
 Patch0003: CVE-2019-12454.patch
 Patch0004: CVE-2019-12455.patch
 Patch0005: CVE-2019-12456.patch
+Patch0006: CVE-2019-13631.patch
+Patch0007: CVE-2019-14284.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
@@ -155,6 +157,8 @@ Linux kernel build files
 %patch0003 -p1
 %patch0004 -p1
 %patch0005 -p1
+%patch0006 -p1
+%patch0007 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
