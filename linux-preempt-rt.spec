@@ -4,7 +4,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.2.9
-Release:        24
+Release:        25
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
@@ -46,7 +46,7 @@ Patch0004: CVE-2019-12456.patch
 Patch0051: 0051-fpga-dfl-fme-mgr-fix-FME_PR_INTFC_ID-register-addres.patch
 Patch0052: 0052-fpga-dfl-fme-remove-copy_to_user-in-ioctl-for-PR.patch
 Patch0053: 0053-fpga-dfl-fme-align-PR-buffer-size-per-PR-datawidth.patch
-Patch0054: 0054-fpga-dfl-fme-support-5.2.9bit-data-width-PR.patch
+Patch0054: 0054-fpga-dfl-fme-support-512bit-data-width-PR.patch
 Patch0055: 0055-fpga-dfl-fme-add-DFL_FPGA_FME_PORT_RELEASE-ASSIGN-io.patch
 Patch0056: 0056-fpga-dfl-pci-enable-SRIOV-support.patch
 Patch0057: 0057-fpga-dfl-afu-add-AFU-state-related-sysfs-interfaces.patch
