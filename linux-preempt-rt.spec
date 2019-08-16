@@ -3,14 +3,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.2.0
-Release:        22
+Version:        5.2.9
+Release:        23
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.2/patch-5.2-rt1.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.9.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.2/patch-5.2.9-rt3.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -30,9 +30,9 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.2-rt1-patches
+#Serie0.tag  v5.2-rt3-patches
 #Serie0.start
-Patch0000: patch-5.2-rt1.patch.xz
+Patch0000: patch-5.2.9-rt3.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
@@ -50,7 +50,7 @@ Patch0008: CVE-2019-14283.patch
 Patch0051: 0051-fpga-dfl-fme-mgr-fix-FME_PR_INTFC_ID-register-addres.patch
 Patch0052: 0052-fpga-dfl-fme-remove-copy_to_user-in-ioctl-for-PR.patch
 Patch0053: 0053-fpga-dfl-fme-align-PR-buffer-size-per-PR-datawidth.patch
-Patch0054: 0054-fpga-dfl-fme-support-512bit-data-width-PR.patch
+Patch0054: 0054-fpga-dfl-fme-support-5.2.9bit-data-width-PR.patch
 Patch0055: 0055-fpga-dfl-fme-add-DFL_FPGA_FME_PORT_RELEASE-ASSIGN-io.patch
 Patch0056: 0056-fpga-dfl-pci-enable-SRIOV-support.patch
 Patch0057: 0057-fpga-dfl-afu-add-AFU-state-related-sysfs-interfaces.patch
@@ -146,7 +146,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.2
+%setup -q -n linux-5.2.9
 
 #Serie0.patch.start
 %patch0000 -p1
