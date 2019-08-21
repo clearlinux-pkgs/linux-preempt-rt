@@ -1,12 +1,14 @@
 #
 # This is the kernel native kernel plus the Preempt-RT patches
+# 
+# 
 #
 
 Name:           linux-preempt-rt
 Version:        5.2.9
 Release:        25
 License:        GPL-2.0
-Summary:        The Linux kernel
+Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
 Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.9.tar.xz
@@ -214,9 +216,6 @@ Linux kernel build files
 #Serie1.patch.end
 
 cp %{SOURCE2} .
-
-cp -a /usr/lib/firmware/i915 firmware/
-cp -a /usr/lib/firmware/intel-ucode firmware/
 
 %build
 BuildKernel() {
