@@ -5,14 +5,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.2.9
+Version:        5.2.10
 Release:        36
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.9.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.2/patch-5.2.9-rt3.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.10.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.2/patch-5.2.10-rt4.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -32,9 +32,9 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.2-rt3-patches
+#Serie0.tag  v5.2.10-rt4-patches
 #Serie0.start
-Patch0000: patch-5.2.9-rt3.patch.xz
+Patch0000: patch-5.2.10-rt4.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
@@ -144,7 +144,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.2.9
+%setup -q -n linux-5.2.10
 
 #Serie0.patch.start
 %patch0000 -p1
