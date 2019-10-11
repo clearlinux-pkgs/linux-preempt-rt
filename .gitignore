@@ -1,8 +1,21 @@
 .*~
 *~
+*.info
+*.mod
 *.swp
-*xz
-*gz
+.repo-index
+*.log
+build.log.round*
+*.tar.*
+*.tgz
+!*.tar.*.*
+*.zip
+*.jar
+*.pom
+*.xml
+commitmsg
+results/
+rpms/
+for-review.txt
 
-results
-rpms
+linux-5.*
