@@ -1,18 +1,18 @@
 #
 # This is the kernel native kernel plus the Preempt-RT patches
-# 
-# 
+#
+#
 #
 
 Name:           linux-preempt-rt
-Version:        5.2.21
+Version:        5.4.5
 Release:        47
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.21.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.2/patch-5.2.21-rt13.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.5.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.5-rt3.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -32,61 +32,30 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.2.21-rt13-patches
+#Serie0.tag  v5.4.5-rt3-patches
 #Serie0.start
-Patch0000: patch-5.2.21-rt13.patch.xz
+Patch0000: patch-5.4.5-rt3.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
 Patch0001: CVE-2019-12379.patch
-Patch0002: CVE-2019-12454.patch
-Patch0003: CVE-2019-12455.patch
-Patch0004: CVE-2019-12456.patch
-Patch0005: 0001-x86-msr-Add-the-IA32_TSX_CTRL-MSR.patch
-Patch0006: 0002-x86-cpu-Add-a-helper-function-x86_read_arch_cap_msr.patch
-Patch0007: 0003-x86-cpu-Add-a-tsx-cmdline-option-with-TSX-disabled-b.patch
-Patch0008: 0004-x86-speculation-taa-Add-mitigation-for-TSX-Async-Abo.patch
-Patch0009: 0005-x86-speculation-taa-Add-sysfs-reporting-for-TSX-Asyn.patch
-Patch0010: 0006-kvm-x86-Export-MDS_NO-0-to-guests-when-TSX-is-enable.patch
-Patch0011: 0007-x86-tsx-Add-auto-option-to-the-tsx-cmdline-parameter.patch
-Patch0012: 0008-x86-speculation-taa-Add-documentation-for-TSX-Async-.patch
-Patch0013: 0009-x86-tsx-Add-config-options-to-set-tsx-on-off-auto.patch
-Patch0014: 0010-x86-bugs-Add-ITLB_MULTIHIT-bug-infrastructure.patch
-Patch0015: 0011-x86-cpu-Add-Tremont-to-the-cpu-vulnerability-whiteli.patch
-Patch0016: 0012-cpu-speculation-Uninline-and-export-CPU-mitigations-.patch
-Patch0017: 0013-Documentation-Add-ITLB_MULTIHIT-documentation.patch
-Patch0018: 0014-x86-speculation-taa-Fix-printing-of-TAA_MSG_SMT-on-I.patch
-Patch0019: 0015-kvm-x86-powerpc-do-not-allow-clearing-largepages-deb.patch
-Patch0020: 0016-kvm-Convert-kvm_lock-to-a-mutex.patch
-Patch0021: 0017-kvm-mmu-Do-not-release-the-page-inside-mmu_set_spte.patch
-Patch0022: 0018-KVM-x86-make-FNAME-fetch-and-__direct_map-more-simil.patch
-Patch0023: 0019-KVM-x86-remove-now-unneeded-hugepage-gfn-adjustment.patch
-Patch0024: 0020-KVM-x86-change-kvm_mmu_page_get_gfn-BUG_ON-to-WARN_O.patch
-Patch0025: 0021-KVM-x86-add-tracepoints-around-__direct_map-and-FNAM.patch
-Patch0026: 0022-KVM-vmx-svm-always-run-with-EFER.NXE-1-when-shadow-p.patch
-Patch0027: 0023-kvm-mmu-ITLB_MULTIHIT-mitigation.patch
-Patch0028: 0024-kvm-Add-helper-function-for-creating-VM-worker-threa.patch
-Patch0029: 0025-kvm-x86-mmu-Recovery-of-shattered-NX-large-pages.patch
+Patch0002: CVE-2019-19043.patch
+Patch0003: CVE-2019-19046.patch
+Patch0004: CVE-2019-19053.patch
+Patch0005: CVE-2019-19054.patch
+Patch0006: CVE-2019-19056.patch
+Patch0007: CVE-2019-19057.patch
+Patch0008: CVE-2019-19063.patch
+Patch0009: CVE-2019-19064.patch
+Patch0010: CVE-2019-19066.patch
+Patch0011: CVE-2019-19068.patch
+Patch0012: CVE-2019-19070.patch
+Patch0013: CVE-2019-19078.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
-Patch0051: 0051-fpga-dfl-fme-mgr-fix-FME_PR_INTFC_ID-register-addres.patch
-Patch0052: 0052-fpga-dfl-fme-remove-copy_to_user-in-ioctl-for-PR.patch
-Patch0053: 0053-fpga-dfl-fme-align-PR-buffer-size-per-PR-datawidth.patch
-Patch0054: 0054-fpga-dfl-fme-support-512bit-data-width-PR.patch
-Patch0055: 0055-fpga-dfl-fme-add-DFL_FPGA_FME_PORT_RELEASE-ASSIGN-io.patch
-Patch0056: 0056-fpga-dfl-pci-enable-SRIOV-support.patch
-Patch0057: 0057-fpga-dfl-afu-add-AFU-state-related-sysfs-interfaces.patch
-Patch0058: 0058-fpga-dfl-afu-add-userclock-sysfs-interfaces.patch
-Patch0059: 0059-fpga-dfl-add-id_table-for-dfl-private-feature-driver.patch
-Patch0060: 0060-fpga-dfl-afu-export-__port_enable-disable-function.patch
-Patch0061: 0061-fpga-dfl-afu-add-error-reporting-support.patch
-Patch0062: 0062-fpga-dfl-afu-add-STP-SignalTap-support.patch
-Patch0063: 0063-fpga-dfl-fme-add-capability-sysfs-interfaces.patch
-Patch0064: 0064-fpga-dfl-fme-add-global-error-reporting-support.patch
-Patch0065: 0065-fpga-dfl-fme-add-thermal-management-support.patch
-Patch0066: 0066-fpga-dfl-fme-add-power-management-support.patch
-Patch0067: 0067-fpga-dfl-fme-add-performance-reporting-support.patch
+Patch0051: 0051-Revert-iwlwifi-assign-directly-to-iwl_trans-cfg-in-Q.patch
+Patch0052: 0052-rcu-nocb-Fix-dump_tree-hierarchy-print-always-active.patch
 #mainline.end
 
 #Serie.clr 01XX: Clear Linux patches
@@ -100,34 +69,33 @@ Patch0107: 0107-bootstats-add-printk-s-to-measure-boot-time-in-more-.patch
 Patch0108: 0108-smpboot-reuse-timer-calibration.patch
 Patch0109: 0109-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
 Patch0110: 0110-Initialize-ata-before-graphics.patch
-Patch0111: 0111-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
-Patch0112: 0112-give-rdrand-some-credit.patch
-Patch0113: 0113-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
-Patch0114: 0114-e1000e-increase-pause-and-refresh-time.patch
-Patch0115: 0115-kernel-time-reduce-ntp-wakeups.patch
-Patch0116: 0116-init-wait-for-partition-and-retry-scan.patch
-Patch0117: 0117-print-fsync-count-for-bootchart.patch
-Patch0118: 0118-Add-boot-option-to-allow-unsigned-modules.patch
-Patch0119: 0119-Enable-stateless-firmware-loading.patch
-Patch0120: 0120-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
-Patch0121: 0121-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-Patch0122: 0122-add-scheduler-turbo3-patch.patch
-Patch0123: 0123-use-lfence-instead-of-rep-and-nop.patch
-Patch0124: 0124-do-accept-in-LIFO-order-for-cache-efficiency.patch
-Patch0125: 0125-zero-extra-registers.patch
-Patch0126: 0126-locking-rwsem-spin-faster.patch
-Patch0127: 0127-thp-fix.patch
-Patch0128: 0128-ata-libahci-ignore-staggered-spin-up.patch
-Patch0129: 0129-add-workaround-for-binutils-optimization.patch
-
-Patch0130: force-load-ucode.patch
-Patch0131: force-with-reload2.patch
+Patch0111: 0111-give-rdrand-some-credit.patch
+Patch0112: 0112-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
+Patch0113: 0113-kernel-time-reduce-ntp-wakeups.patch
+Patch0114: 0114-init-wait-for-partition-and-retry-scan.patch
+Patch0115: 0115-print-fsync-count-for-bootchart.patch
+Patch0116: 0116-Add-boot-option-to-allow-unsigned-modules.patch
+Patch0117: 0117-Enable-stateless-firmware-loading.patch
+Patch0118: 0118-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
+Patch0119: 0119-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
+Patch0120: 0120-add-scheduler-turbo3-patch.patch
+Patch0121: 0121-use-lfence-instead-of-rep-and-nop.patch
+Patch0122: 0122-do-accept-in-LIFO-order-for-cache-efficiency.patch
+Patch0123: 0123-zero-extra-registers.patch
+Patch0124: 0124-locking-rwsem-spin-faster.patch
+Patch0125: 0125-ata-libahci-ignore-staggered-spin-up.patch
+Patch0126: 0126-print-CPU-that-faults.patch
+Patch0127: 0127-x86-microcode-Force-update-a-uCode-even-if-the-rev-i.patch
+Patch0128: 0128-x86-microcode-echo-2-reload-to-force-load-ucode.patch
+Patch0129: 0129-fix-bug-in-ucode-force-reload-revision-check.patch
+Patch0130: 0130-add-workaround-for-binutils-optimization.patch
+Patch0131: 0131-nvme-workaround.patch
 #Serie.end
 
 #Serie1.name WireGuard
 #Serie1.git  https://git.zx2c4.com/WireGuard
-#Serie1.cmt  d8179bf1ed9ecf0c7f9a78ceb0566a7e7b2f4497
-#Serie1.tag  0.0.20190702
+#Serie1.cmt  edad0d6e99e5133b1e8e865d727a25fff6399cb4
+#Serie1.tag  0.0.20191219
 Patch1001: 1001-WireGuard-fast-modern-secure-kernel-VPN-tunnel.patch
 #Serie1.end
 
@@ -156,7 +124,7 @@ Summary:        cpio file with kenrel modules
 Group:          kernel
 
 %description cpio
-Creates a cpio file with i8042 module
+Creates a cpio file with some modules
 
 %package dev
 License:        GPL-2.0
@@ -170,7 +138,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.2.21
+%setup -q -n linux-5.4.5
 
 #Serie0.patch.start
 %patch0000 -p1
@@ -190,42 +158,11 @@ Linux kernel build files
 %patch0011 -p1
 %patch0012 -p1
 %patch0013 -p1
-%patch0014 -p1
-%patch0015 -p1
-%patch0016 -p1
-%patch0017 -p1
-%patch0018 -p1
-%patch0019 -p1
-%patch0020 -p1
-%patch0021 -p1
-%patch0022 -p1
-%patch0023 -p1
-%patch0024 -p1
-%patch0025 -p1
-%patch0026 -p1
-%patch0027 -p1
-%patch0028 -p1
-%patch0029 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
 %patch0051 -p1
 %patch0052 -p1
-%patch0053 -p1
-%patch0054 -p1
-%patch0055 -p1
-%patch0056 -p1
-%patch0057 -p1
-%patch0058 -p1
-%patch0059 -p1
-%patch0060 -p1
-%patch0061 -p1
-%patch0062 -p1
-%patch0063 -p1
-%patch0064 -p1
-%patch0065 -p1
-%patch0066 -p1
-%patch0067 -p1
 #mainline.patch.end
 
 #Serie.patch.start Clear Linux patches
@@ -258,7 +195,6 @@ Linux kernel build files
 %patch0127 -p1
 %patch0128 -p1
 %patch0129 -p1
-
 %patch0130 -p1
 %patch0131 -p1
 #Serie.patch.end
@@ -334,7 +270,7 @@ InstallKernel() {
     ln -s org.clearlinux.${Target}.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-${Target}
 }
 
-# cpio file for i8042 libps2 atkbd
+# cpio file for keyboard drivers
 createCPIO() {
 
     Target=$1
@@ -349,6 +285,7 @@ createCPIO() {
     cp %{buildroot}${ModDir}/kernel/drivers/input/keyboard/atkbd.ko   cpiofile${ModDir}/kernel/drivers/input/keyboard
     cp %{buildroot}${ModDir}/kernel/drivers/hid/hid-logitech-dj.ko    cpiofile${ModDir}/kernel/drivers/hid
     cp %{buildroot}${ModDir}/kernel/drivers/hid/hid-logitech-hidpp.ko cpiofile${ModDir}/kernel/drivers/hid
+    cp %{buildroot}${ModDir}/kernel/drivers/hid/hid-apple.ko          cpiofile${ModDir}/kernel/drivers/hid
     cp %{buildroot}${ModDir}/modules.order   cpiofile${ModDir}
     cp %{buildroot}${ModDir}/modules.builtin cpiofile${ModDir}
 
