@@ -38,11 +38,7 @@ Patch0000: patch-5.4.13-rt7.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
-Patch0001: CVE-2019-12379.patch
-Patch0002: CVE-2019-19043.patch
-Patch0003: CVE-2019-19046.patch
-Patch0004: CVE-2019-19054.patch
-#cve.end
+Patch0001: CVE-2019-12379.patchPatch0002: CVE-2019-19054.patch#cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
 Patch0051: 0051-rcu-nocb-Fix-dump_tree-hierarchy-print-always-active.patch
@@ -135,11 +131,7 @@ Linux kernel build files
 #Serie0.patch.end
 
 #cve.patch.start cve patches
-%patch0001 -p1
-%patch0002 -p1
-%patch0003 -p1
-%patch0004 -p1
-#cve.patch.end
+patch0001 -p1patch0002 -p1#cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
 %patch0051 -p1
