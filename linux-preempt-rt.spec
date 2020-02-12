@@ -6,7 +6,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.4.17
-Release:        52
+Release:        53
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
@@ -38,7 +38,9 @@ Patch0000: patch-5.4.17-rt9.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
-Patch0001: CVE-2019-12379.patchPatch0002: CVE-2019-19054.patch#cve.end
+Patch0001: CVE-2019-12379.patch
+Patch0002: CVE-2019-19054.patch
+#cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
 Patch0051: 0051-rcu-nocb-Fix-dump_tree-hierarchy-print-always-active.patch
@@ -74,8 +76,7 @@ Patch0126: 0126-print-CPU-that-faults.patch
 Patch0127: 0127-x86-microcode-Force-update-a-uCode-even-if-the-rev-i.patch
 Patch0128: 0128-x86-microcode-echo-2-reload-to-force-load-ucode.patch
 Patch0129: 0129-fix-bug-in-ucode-force-reload-revision-check.patch
-Patch0130: 0130-add-workaround-for-binutils-optimization.patch
-Patch0131: 0131-nvme-workaround.patch
+Patch0130: 0130-nvme-workaround.patch
 #Serie.end
 
 #Serie1.name WireGuard
@@ -131,7 +132,9 @@ Linux kernel build files
 #Serie0.patch.end
 
 #cve.patch.start cve patches
-patch0001 -p1patch0002 -p1#cve.patch.end
+%patch0001 -p1
+%patch0002 -p1
+#cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
 %patch0051 -p1
@@ -168,7 +171,6 @@ patch0001 -p1patch0002 -p1#cve.patch.end
 %patch0128 -p1
 %patch0129 -p1
 %patch0130 -p1
-%patch0131 -p1
 #Serie.patch.end
 
 #Serie1.patch.start
