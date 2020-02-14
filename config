@@ -6547,7 +6547,7 @@ CONFIG_IRQ_REMAP=y
 #
 # Remoteproc drivers
 #
-# CONFIG_REMOTEPROC is not set
+CONFIG_REMOTEPROC=y
 # end of Remoteproc drivers
 
 #
