@@ -72,7 +72,7 @@ index c1e566a..5f8fca8 100644
  {
  	wq_entry->flags = flags;
 diff --git a/net/ipv4/inet_connection_sock.c b/net/ipv4/inet_connection_sock.c
-index ac05e27..b4486f0 100644
+index b0010c7..c496100 100644
 --- a/net/ipv4/inet_connection_sock.c
 +++ b/net/ipv4/inet_connection_sock.c
 @@ -407,7 +407,7 @@ static int inet_csk_wait_for_connect(struct sock *sk, long timeo)
