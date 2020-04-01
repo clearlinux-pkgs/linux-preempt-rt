@@ -6,7 +6,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.4.28
-Release:        60
+Release:        61
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
@@ -78,12 +78,12 @@ Patch0129: 0129-fix-bug-in-ucode-force-reload-revision-check.patch
 Patch0130: 0130-nvme-workaround.patch
 #Serie.end
 
-#Serie1.name WireGuard
-#Serie1.git  https://git.zx2c4.com/WireGuard
-#Serie1.cmt  edad0d6e99e5133b1e8e865d727a25fff6399cb4
-#Serie1.tag  0.0.20191219
+#Serie100.name WireGuard
+#Serie100.git  https://git.zx2c4.com/WireGuard
+#Serie100.cmt  43f57dac7b8305024f83addc533c9eede6509129
+#Serie100.tag  v1.0.20200401
 Patch1001: 1001-WireGuard-fast-modern-secure-kernel-VPN-tunnel.patch
-#Serie1.end
+#Serie100.end
 
 %description
 The Linux kernel.
@@ -171,9 +171,9 @@ Linux kernel build files
 %patch0130 -p1
 #Serie.patch.end
 
-#Serie1.patch.start
+#Serie100.patch.start
 %patch1001 -p1
-#Serie1.patch.end
+#Serie100.patch.end
 
 cp %{SOURCE2} .
 
