@@ -5,14 +5,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.4.28
+Version:        5.6.4
 Release:        61
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.28.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.28-rt19.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.4.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.6/patch-5.6.4-rt3.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -117,7 +117,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.4.28
+%setup -q -n linux-5.6.4
 
 #Serie0.patch.start
 %patch0000 -p1
