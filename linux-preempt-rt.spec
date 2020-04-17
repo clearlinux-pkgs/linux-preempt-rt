@@ -32,13 +32,12 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.4.28-rt19-patches
+#Serie0.tag  v5.6.4-rt3-patches
 #Serie0.start
-Patch0000: patch-5.4.28-rt19.patch.xz
+Patch0000: patch-5.6.4-rt3.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
-Patch0001: CVE-2019-19054.patch
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
@@ -75,14 +74,9 @@ Patch0127: 0127-x86-microcode-Force-update-a-uCode-even-if-the-rev-i.patch
 Patch0128: 0128-x86-microcode-echo-2-reload-to-force-load-ucode.patch
 Patch0129: 0129-fix-bug-in-ucode-force-reload-revision-check.patch
 Patch0130: 0130-nvme-workaround.patch
+Patch0131: 0131-Don-t-report-an-error-if-PowerClamp-run-on-other-CPU.patch
+Patch0132: 0132-overload-on-wakeup.patch
 #Serie.end
-
-#Serie100.name WireGuard
-#Serie100.git  https://git.zx2c4.com/WireGuard
-#Serie100.cmt  43f57dac7b8305024f83addc533c9eede6509129
-#Serie100.tag  v1.0.20200401
-Patch1001: 1001-WireGuard-fast-modern-secure-kernel-VPN-tunnel.patch
-#Serie100.end
 
 %description
 The Linux kernel.
@@ -130,7 +124,6 @@ Linux kernel build files
 #Serie0.patch.end
 
 #cve.patch.start cve patches
-%patch0001 -p1
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
@@ -167,11 +160,9 @@ Linux kernel build files
 %patch0128 -p1
 %patch0129 -p1
 %patch0130 -p1
+%patch0131 -p1
+%patch0132 -p1
 #Serie.patch.end
-
-#Serie100.patch.start
-%patch1001 -p1
-#Serie100.patch.end
 
 cp %{SOURCE2} .
 
