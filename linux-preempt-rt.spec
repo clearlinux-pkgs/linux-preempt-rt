@@ -6,13 +6,13 @@
 
 Name:           linux-preempt-rt
 Version:        5.6.19
-Release:        69
+Release:        70
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
 Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.19.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.6/patch-5.6.19-rt11.patch.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.6/patch-5.6.19-rt12.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -32,9 +32,9 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.6.19-rt11-patches
+#Serie0.tag  v5.6.19-rt12-patches
 #Serie0.start
-Patch0000: patch-5.6.19-rt11.patch.xz
+Patch0000: patch-5.6.19-rt12.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
