@@ -5,14 +5,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.6.19
+Version:        5.10.35
 Release:        72
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.19.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.6/patch-5.6.19-rt12.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.35.tar.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.10/patch-5.10.35-rt39.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -32,9 +32,9 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.6.19-rt12-patches
+#Serie0.tag  v5.10.35-rt39-patches
 #Serie0.start
-Patch0000: patch-5.6.19-rt12.patch.xz
+Patch0000: patch-5.10.35-rt39.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
@@ -56,7 +56,6 @@ Patch0105: 0105-ksm-wakeups.patch
 Patch0106: 0106-intel_idle-tweak-cpuidle-cstates.patch
 Patch0107: 0107-bootstats-add-printk-s-to-measure-boot-time-in-more-.patch
 Patch0108: 0108-smpboot-reuse-timer-calibration.patch
-Patch0109: 0109-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
 Patch0110: 0110-Initialize-ata-before-graphics.patch
 Patch0111: 0111-give-rdrand-some-credit.patch
 Patch0112: 0112-ipv4-tcp-allow-the-memory-tuning-for-tcp-to-go-a-lit.patch
@@ -121,7 +120,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.6.19
+%setup -q -n linux-5.10.35
 
 #Serie0.patch.start
 %patch0000 -p1
@@ -146,7 +145,6 @@ Linux kernel build files
 %patch0106 -p1
 %patch0107 -p1
 %patch0108 -p1
-%patch0109 -p1
 %patch0110 -p1
 %patch0111 -p1
 %patch0112 -p1
