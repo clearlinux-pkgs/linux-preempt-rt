@@ -12,7 +12,7 @@ Summary:        The Linux kernel with Preempt-RT
 Url:            http://www.kernel.org/
 Group:          kernel
 Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.35.tar.xz
-Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.10/patch-5.10.35-rt39.patch.xz
+Source1:        https://cdn.kernel.org/pub/linux/kernel/projects/rt/5.10/older/patch-5.10.35-rt39.patch.xz
 Source2:        config
 Source3:        cmdline
 
