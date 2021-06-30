@@ -10,10 +10,10 @@ Subject: [PATCH] print fsync count for bootchart
  3 files changed, 5 insertions(+)
 
 diff --git a/block/blk-core.c b/block/blk-core.c
-index 60dc955..f743c5c 100644
+index 2d53e2ff4..37ced5095 100644
 --- a/block/blk-core.c
 +++ b/block/blk-core.c
-@@ -1173,6 +1173,9 @@ blk_qc_t submit_bio(struct bio *bio)
+@@ -1099,6 +1099,9 @@ blk_qc_t submit_bio(struct bio *bio)
  			count_vm_events(PGPGIN, count);
  		}
  
@@ -24,10 +24,10 @@ index 60dc955..f743c5c 100644
  			char b[BDEVNAME_SIZE];
  			printk(KERN_DEBUG "%s(%d): %s block %Lu on %s (%u sectors)\n",
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index be1a2dd..bb2d233 100644
+index e688e9307..2cc00f755 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
-@@ -908,6 +908,7 @@ struct task_struct {
+@@ -949,6 +949,7 @@ struct task_struct {
  	/* Cached requested key. */
  	struct key			*cached_requested_key;
  #endif
@@ -36,10 +36,10 @@ index be1a2dd..bb2d233 100644
  	/*
  	 * executable name, excluding path.
 diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
-index f5fc5b4..22f0308 100644
+index 6264584b5..2bb39b334 100644
 --- a/kernel/sched/debug.c
 +++ b/kernel/sched/debug.c
-@@ -886,6 +886,7 @@ void proc_sched_show_task(struct task_struct *p, struct pid_namespace *ns,
+@@ -946,6 +946,7 @@ void proc_sched_show_task(struct task_struct *p, struct pid_namespace *ns,
  	PN(se.exec_start);
  	PN(se.vruntime);
  	PN(se.sum_exec_runtime);

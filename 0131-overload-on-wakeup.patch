@@ -14,10 +14,10 @@ Source: https://github.com/jplozi/wastedcores
  1 file changed, 28 insertions(+)
 
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 0bc8ebc..de77cef 100644
+index e4516b05b..3cd2e2b4b 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
-@@ -6360,6 +6360,8 @@ static int find_energy_efficient_cpu(struct task_struct *p, int prev_cpu)
+@@ -6713,6 +6713,8 @@ static int find_energy_efficient_cpu(struct task_struct *p, int prev_cpu)
  	return -1;
  }
  
@@ -26,7 +26,7 @@ index 0bc8ebc..de77cef 100644
  /*
   * select_task_rq_fair: Select target runqueue for the waking task in domains
   * that have the 'sd_flag' flag set. In practice, this is SD_BALANCE_WAKE,
-@@ -6415,6 +6417,32 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
+@@ -6767,6 +6769,32 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_f
  
  
  	rcu_read_lock();
@@ -57,8 +57,8 @@ index 0bc8ebc..de77cef 100644
 +	}
 +
  	for_each_domain(cpu, tmp) {
- 		if (!(tmp->flags & SD_LOAD_BALANCE))
- 			break;
+ 		/*
+ 		 * If both 'cpu' and 'prev_cpu' are part of this domain,
 -- 
 https://clearlinux.org
 

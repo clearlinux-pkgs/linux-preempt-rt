@@ -8,10 +8,10 @@ Subject: [PATCH] Don't report an error if PowerClamp run on other CPU
  1 file changed, 10 insertions(+)
 
 diff --git a/drivers/thermal/intel/intel_powerclamp.c b/drivers/thermal/intel/intel_powerclamp.c
-index 53216dc..b6df6a3 100644
+index b0eb5ece9..5dc056d31 100644
 --- a/drivers/thermal/intel/intel_powerclamp.c
 +++ b/drivers/thermal/intel/intel_powerclamp.c
-@@ -650,6 +650,11 @@ static struct thermal_cooling_device_ops powerclamp_cooling_ops = {
+@@ -647,6 +647,11 @@ static struct thermal_cooling_device_ops powerclamp_cooling_ops = {
  	.set_cur_state = powerclamp_set_cur_state,
  };
  
@@ -21,9 +21,9 @@ index 53216dc..b6df6a3 100644
 +};
 +
  static const struct x86_cpu_id __initconst intel_powerclamp_ids[] = {
- 	{ X86_VENDOR_INTEL, X86_FAMILY_ANY, X86_MODEL_ANY, X86_FEATURE_MWAIT },
+ 	X86_MATCH_VENDOR_FEATURE(INTEL, X86_FEATURE_MWAIT, NULL),
  	{}
-@@ -659,6 +664,11 @@ MODULE_DEVICE_TABLE(x86cpu, intel_powerclamp_ids);
+@@ -656,6 +661,11 @@ MODULE_DEVICE_TABLE(x86cpu, intel_powerclamp_ids);
  static int __init powerclamp_probe(void)
  {
  
