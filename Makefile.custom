@@ -14,3 +14,6 @@ genfragment: $(SRPMFILE)
 	$(MOCK) $(MOCK_COMMON_ARGS) --copyin config /builddir/build/BUILD/
 	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --chroot 'update-fragment /builddir/build/BUILD/config'
 	$(MOCK) $(MOCK_COMMON_ARGS) --copyout /builddir/build/BUILD/linux-*/.fragment config-fragment
+
+kdevelop:
+	@scripts/develop.sh $(SPECFILE) $(DESTDIR)
