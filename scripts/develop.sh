@@ -31,6 +31,8 @@ SRC_URL=$(grep "^Source0:" "${SPECFILE}" | cut -f 2- -d ':' | tr -d " ")
 SRC_FILE=${SRC_URL##*/}
 SRC_DIR=${SRC_FILE%*.tar.xz}
 SRC_VER=${SRC_DIR#*-}
+RT_PATCH_URL=$(grep "^Source1:" "${SPECFILE}" | cut -f 2- -d ':' | tr -d " ")
+RT_PATCH=${RT_PATCH_URL##*/}
 
 if [ ! -f ${SRC_FILE} ]
 then
@@ -44,7 +46,7 @@ fi
 
 echo $(sha1sum ${SRC_FILE} | cut -d\  -f1)/${SRC_FILE} > upstream.check
 
-if ! cmp --quiet upstream upstream.check
+if ! cmp --quiet <(head -n1 upstream) upstream.check
 then
     echo >&2 "${SRC_FILE} checksum fails"
     rm upstream.check
@@ -61,6 +63,17 @@ git -C ${DESTDIR}/${SRC_DIR} config gc.auto 0
 git -C ${DESTDIR}/${SRC_DIR} add --all
 git -C ${DESTDIR}/${SRC_DIR} commit -m "${PKG_NAME} ${SRC_VER}" --quiet
 git -C ${DESTDIR}/${SRC_DIR} tag -a -m "v${SRC_VER}" "v${SRC_VER}"
+
+RT_TMP=$(mktemp)
+trap "rm ${RT_TMP}" EXIT
+xzcat ${RT_PATCH} > ${RT_TMP}
+if ! git -C ${DESTDIR}/${SRC_DIR} apply ${RT_TMP}
+then
+    echo >&2 "Failed to apply RT patch"
+    exit 4
+fi
+git -C ${DESTDIR}/${SRC_DIR} add --all
+git -C ${DESTDIR}/${SRC_DIR} commit -m "${PKG_NAME} rt patch" --quiet
 
 for p in CVE* [0-9]*.patch
 do
