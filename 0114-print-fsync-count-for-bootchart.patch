@@ -24,10 +24,10 @@ index 2d53e2ff4..37ced5095 100644
  			char b[BDEVNAME_SIZE];
  			printk(KERN_DEBUG "%s(%d): %s block %Lu on %s (%u sectors)\n",
 diff --git a/include/linux/sched.h b/include/linux/sched.h
-index e688e9307..2cc00f755 100644
+index 8944be44a..85ad133d7 100644
 --- a/include/linux/sched.h
 +++ b/include/linux/sched.h
-@@ -949,6 +949,7 @@ struct task_struct {
+@@ -957,6 +957,7 @@ struct task_struct {
  	/* Cached requested key. */
  	struct key			*cached_requested_key;
  #endif
@@ -36,10 +36,10 @@ index e688e9307..2cc00f755 100644
  	/*
  	 * executable name, excluding path.
 diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
-index 6264584b5..2bb39b334 100644
+index 70a578272..4ccd5908a 100644
 --- a/kernel/sched/debug.c
 +++ b/kernel/sched/debug.c
-@@ -946,6 +946,7 @@ void proc_sched_show_task(struct task_struct *p, struct pid_namespace *ns,
+@@ -947,6 +947,7 @@ void proc_sched_show_task(struct task_struct *p, struct pid_namespace *ns,
  	PN(se.exec_start);
  	PN(se.vruntime);
  	PN(se.sum_exec_runtime);
