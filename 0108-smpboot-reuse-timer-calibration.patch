@@ -13,7 +13,7 @@ diff --git a/arch/x86/kernel/tsc.c b/arch/x86/kernel/tsc.c
 index f70dffc27..dfb9f6055 100644
 --- a/arch/x86/kernel/tsc.c
 +++ b/arch/x86/kernel/tsc.c
-@@ -1546,6 +1546,9 @@ unsigned long calibrate_delay_is_known(void)
+@@ -1547,6 +1547,9 @@ unsigned long calibrate_delay_is_known(void)
  	if (!constant_tsc || !mask)
  		return 0;
  
