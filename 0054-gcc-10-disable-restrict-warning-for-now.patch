@@ -52,7 +52,7 @@ diff --git a/Makefile b/Makefile
 index 622b456ce..685110df6 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -932,6 +932,9 @@ KBUILD_CFLAGS += $(call cc-disable-warning, zero-length-bounds)
+@@ -933,6 +933,9 @@ KBUILD_CFLAGS += $(call cc-disable-warning, zero-length-bounds)
  KBUILD_CFLAGS += $(call cc-disable-warning, array-bounds)
  KBUILD_CFLAGS += $(call cc-disable-warning, stringop-overflow)
  
