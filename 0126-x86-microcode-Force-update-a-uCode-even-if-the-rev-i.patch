@@ -49,12 +49,12 @@ index 7e8e07bdd..faaa56c05 100644
 -	if (mc_hdr->rev <= new_rev)
 +	//if (mc_hdr->rev <= new_rev)
 +	if (mc_hdr->rev < new_rev) {
-+		printk ("Returning NO_NEW old = 0x%x new = 0x%x\n", 
++		printk ("Returning NO_NEW old = 0x%x new = 0x%x\n",
 +			mc_hdr->rev, new_rev);
  		return 0;
 +	}
 +	if ((mc_hdr->rev == new_rev) && !force_ucode_load) {
-+		printk ("SAME REV: no_force Returning NO_NEW old = 0x%x new = 0x%x\n", 
++		printk ("SAME REV: no_force Returning NO_NEW old = 0x%x new = 0x%x\n",
 +			mc_hdr->rev, new_rev);
 +		return 0;
 +	}
