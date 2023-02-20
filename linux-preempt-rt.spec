@@ -45,6 +45,7 @@ Patch0051: 0051-gcc-10-disable-zero-length-bounds-warning-for-now.patch
 Patch0052: 0052-gcc-10-disable-array-bounds-warning-for-now.patch
 Patch0053: 0053-gcc-10-disable-stringop-overflow-warning-for-now.patch
 Patch0054: 0054-gcc-10-disable-restrict-warning-for-now.patch
+Patch0055: 0055-mm-swap-consider-max-pages-in-iomap_swapfile_add_ext.patch
 #mainline.end
 
 #Serie.clr 01XX: Clear Linux patches
@@ -134,6 +135,7 @@ Linux kernel build files
 %patch0052 -p1
 %patch0053 -p1
 %patch0054 -p1
+%patch0055 -p1
 #mainline.patch.end
 
 #Serie.patch.start Clear Linux patches
