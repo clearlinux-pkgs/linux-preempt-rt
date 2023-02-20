@@ -6,7 +6,7 @@
 
 Name:           linux-preempt-rt
 Version:        5.10.59
-Release:        83
+Release:        84
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            https://www.kernel.org
