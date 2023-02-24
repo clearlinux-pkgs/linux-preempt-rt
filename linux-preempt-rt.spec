@@ -5,14 +5,14 @@
 #
 
 Name:           linux-preempt-rt
-Version:        5.10.59
+Version:        6.1.13
 Release:        84
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            https://www.kernel.org
 Group:          kernel
-Source0:        https://mirrors.kernel.org/pub/linux/kernel/v5.x/linux-5.10.59.tar.xz
-Source1:        https://mirrors.kernel.org/pub/linux/kernel/projects/rt/5.10/patch-5.10.59-rt52.patch.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.13.tar.xz
+Source1:        https://mirrors.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1.12-rt7.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -32,21 +32,15 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v5.10.59-rt52-patches
+#Serie0.tag  v6.1.13-rt52-patches
 #Serie0.start
-Patch0000: patch-5.10.59-rt52.patch.xz
+Patch0000: patch-6.1.12-rt7.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
 #cve.end
 
 #mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
-Patch0051: 0051-gcc-10-disable-zero-length-bounds-warning-for-now.patch
-Patch0052: 0052-gcc-10-disable-array-bounds-warning-for-now.patch
-Patch0053: 0053-gcc-10-disable-stringop-overflow-warning-for-now.patch
-Patch0054: 0054-gcc-10-disable-restrict-warning-for-now.patch
-Patch0055: 0055-mm-swap-consider-max-pages-in-iomap_swapfile_add_ext.patch
-Patch0056: 0056-libsubcmd-Fix-use-after-free-for-realloc-.-0.patch
 #mainline.end
 
 #Serie.clr 01XX: Clear Linux patches
@@ -122,7 +116,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.10.59
+%setup -q -n linux-6.1.13
 
 #Serie0.patch.start
 %patch0000 -p1
@@ -132,12 +126,6 @@ Linux kernel build files
 #cve.patch.end
 
 #mainline.patch.start Mainline patches, upstream backport and fixes
-%patch0051 -p1
-%patch0052 -p1
-%patch0053 -p1
-%patch0054 -p1
-%patch0055 -p1
-%patch0056 -p1
 #mainline.patch.end
 
 #Serie.patch.start Clear Linux patches
@@ -150,11 +138,11 @@ Linux kernel build files
 %patch0107 -p1
 %patch0108 -p1
 %patch0109 -p1
-%patch0110 -p1
+#%patch0110 -p1
 %patch0111 -p1
-%patch0112 -p1
+#%patch0112 -p1
 %patch0113 -p1
-%patch0114 -p1
+#%patch0114 -p1
 %patch0115 -p1
 %patch0116 -p1
 %patch0117 -p1
@@ -167,7 +155,7 @@ Linux kernel build files
 %patch0124 -p1
 %patch0125 -p1
 %patch0126 -p1
-%patch0127 -p1
+#%patch0127 -p1
 %patch0128 -p1
 %patch0129 -p1
 %patch0130 -p1
