@@ -12,7 +12,7 @@ Summary:        The Linux kernel with Preempt-RT
 Url:            https://www.kernel.org
 Group:          kernel
 Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.20.tar.xz
-Source1:        https://mirrors.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1.12-rt7.patch.xz
+Source1:        https://mirrors.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1.19-rt8.patch.xz
 Source2:        config
 Source3:        cmdline
 
@@ -34,7 +34,7 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
 #Serie0.tag  v6.1.20-rt52-patches
 #Serie0.start
-Patch0000: patch-6.1.12-rt7.patch.xz
+Patch0000: patch-6.1.19-rt8.patch.xz
 #Serie0.end
 
 #cve.start cve patches from 0001 to 050
