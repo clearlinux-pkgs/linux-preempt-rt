@@ -63,7 +63,6 @@ Patch0116: 0116-Enable-stateless-firmware-loading.patch
 Patch0117: 0117-Migrate-some-systemd-defaults-to-the-kernel-defaults.patch
 Patch0118: 0118-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
 Patch0119: 0119-add-scheduler-turbo3-patch.patch
-Patch0120: 0120-use-lfence-instead-of-rep-and-nop.patch
 Patch0121: 0121-do-accept-in-LIFO-order-for-cache-efficiency.patch
 Patch0122: 0122-zero-extra-registers.patch
 Patch0123: 0123-locking-rwsem-spin-faster.patch
@@ -148,7 +147,6 @@ Linux kernel build files
 %patch0117 -p1
 %patch0118 -p1
 %patch0119 -p1
-%patch0120 -p1
 %patch0121 -p1
 %patch0122 -p1
 %patch0123 -p1
