@@ -5,13 +5,13 @@
 #
 
 Name:           linux-preempt-rt
-Version:        6.1.42
-Release:        109
+Version:        6.1.43
+Release:        110
 License:        GPL-2.0
 Summary:        The Linux kernel with Preempt-RT
 Url:            https://www.kernel.org
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.42.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.43.tar.xz
 Source1:        https://mirrors.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1.19-rt8.patch.xz
 Source2:        config
 Source3:        cmdline
@@ -32,7 +32,7 @@ Requires: linux-preempt-rt-license = %{version}-%{release}
 
 #Serie0.name Upstream_Preemt-RT
 #Serie0.git  https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
-#Serie0.tag  v6.1.42-rt52-patches
+#Serie0.tag  v6.1.43-rt52-patches
 #Serie0.start
 Patch0000: patch-6.1.19-rt8.patch.xz
 #Serie0.end
@@ -115,7 +115,7 @@ Requires:       linux-preempt-rt-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-6.1.42
+%setup -q -n linux-6.1.43
 
 #Serie0.patch.start
 %patch0000 -p1
