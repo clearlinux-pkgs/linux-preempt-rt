@@ -1,13 +1,37 @@
 MOCK_COMMON_ARGS = -n --result=results/ --no-cleanup-after --uniqueext=$(PKG_NAME)
 
-.PHONY: config
-config: $(SRPMFILE) config-fragment
+#help genconfig: Generates the config file from a base-config, mandatory-config
+#help and package config-fragment.
+genconfig: $(SRPMFILE) config-fragment
 	$(MOCK) $(MOCK_COMMON_ARGS) --installdeps $(SRPMFILE)
 	$(MOCK) $(MOCK_COMMON_ARGS) --chroot 'rpmbuild -bp /builddir/build/SPECS/$(SPECFILE)'
 	$(MOCK) $(MOCK_COMMON_ARGS) --copyin $(filter-out %.rpm,$^) /builddir/build/BUILD/
 	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --chroot 'apply-kconfig $(foreach infile,$(notdir $(filter-out %.rpm,$^)),/builddir/build/BUILD/$(infile))'
-	$(MOCK) $(MOCK_COMMON_ARGS) --copyout /builddir/build/BUILD/linux-*/.config $@
+	$(MOCK) $(MOCK_COMMON_ARGS) --copyout /builddir/build/BUILD/linux-*/.config config
 
+#help oldconfig: Uses the current config file as input to `make oldconfig` and
+#help applies the results to the local copy.
+oldconfig: $(SRPMFILE) config
+	$(MOCK) $(MOCK_COMMON_ARGS) --installdeps $(SRPMFILE)
+	$(MOCK) $(MOCK_COMMON_ARGS) --chroot 'rpmbuild -bp /builddir/build/SPECS/$(SPECFILE)'
+	$(MOCK) $(MOCK_COMMON_ARGS) --copyin $(filter-out %.rpm,$^) /builddir/build/BUILD/.config
+	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --chroot 'mv .config linux-*/'
+	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --shell 'make -C linux-* oldconfig'
+	$(MOCK) $(MOCK_COMMON_ARGS) --copyout /builddir/build/BUILD/linux-*/.config config
+
+#help menuconfig: Uses the current config file as input to `make menuconfig` and
+#help applies the results to the local copy.
+menuconfig: $(SRPMFILE) config
+	$(MOCK) $(MOCK_COMMON_ARGS) --installdeps $(SRPMFILE)
+	$(MOCK) $(MOCK_COMMON_ARGS) --install ncurses-dev
+	$(MOCK) $(MOCK_COMMON_ARGS) --chroot 'rpmbuild -bp /builddir/build/SPECS/$(SPECFILE)'
+	$(MOCK) $(MOCK_COMMON_ARGS) --copyin $(filter-out %.rpm,$^) /builddir/build/BUILD/.config
+	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --chroot 'mv .config linux-*/'
+	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --shell 'make -C linux-* menuconfig'
+	$(MOCK) $(MOCK_COMMON_ARGS) --copyout /builddir/build/BUILD/linux-*/.config config
+
+#help genfragment: Rebuild the package config-fragment using base-config and
+#help the current package config.
 genfragment: $(SRPMFILE)
 	$(MOCK) $(MOCK_COMMON_ARGS) --installdeps $(SRPMFILE)
 	$(MOCK) $(MOCK_COMMON_ARGS) --chroot 'rpmbuild -bp /builddir/build/SPECS/$(SPECFILE)'
@@ -15,5 +39,8 @@ genfragment: $(SRPMFILE)
 	$(MOCK) $(MOCK_COMMON_ARGS) --cwd=/builddir/build/BUILD --chroot 'update-fragment /builddir/build/BUILD/config'
 	$(MOCK) $(MOCK_COMMON_ARGS) --copyout /builddir/build/BUILD/linux-*/.fragment config-fragment
 
+#help kdevelop: Download and extract the package sources and apply the clear Linux
+#help patches on top of it using the git tool. You can use DESTDIR=target to
+#help extrat to a specific target directory. i.e. "make develop DESTDIR=/tmp"
 kdevelop:
 	@scripts/develop.sh $(SPECFILE) $(DESTDIR)
